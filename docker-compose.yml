@@ -10,7 +10,9 @@ services:
     depends_on:
       - php-api
       - python-ml
-
+    networks:
+      - default
+      - dokploy-network
 
   php-api:
     build: ./php-api
@@ -37,3 +39,8 @@ services:
 
 volumes:
   mysql_data:
+
+networks:
+  default:
+  dokploy-network:
+    external: true
